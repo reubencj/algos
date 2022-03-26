@@ -84,11 +84,59 @@ class SLL {
     }
     return display_text;
   }
+
+  max() {
+    if (this.head == null) {
+      return null;
+    }
+    let runner = this.head;
+    let max_val = this.head.data;
+    while (runner.next != null) {
+      runner = runner.next;
+      if (max_val < runner.data) {
+        max_val = runner.data;
+      }
+    }
+    return max_val;
+  }
+
+  min() {
+    if (this.head == null) {
+      return null;
+    }
+    let runner = this.head;
+    let min_val = this.head.data;
+    while (runner.next != null) {
+      runner = runner.next;
+      if (min_val < runner.data) {
+        min_val = runner.data;
+      }
+    }
+    min_val;
+    return min_val;
+  }
+
+  avg() {
+    let runner = this.head;
+    let sum = 0;
+    let num = 0;
+    while (runner != null) {
+      sum += runner.data;
+      runner = runner.next;
+      num++;
+    }
+
+    return sum / num;
+  }
 }
 
-let ls = new SLL().addFront("Hello");
-ls.addFront("I'm in the front now");
-ls.addFront("No I am");
+// let ls = new SLL().addFront("Hello");
+// ls.addFront("I'm in the front now");
+// ls.addFront("No I am");
 
-console.log(ls);
-console.log(ls.display());
+// console.log(ls);
+// console.log(ls.display());
+
+let ls = new SLL().addFront(3).addFront(3).addFront(3);
+
+console.log(ls.avg());
