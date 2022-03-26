@@ -41,11 +41,41 @@ class SLL {
     }
     return this.head.data;
   }
+  //contains
+
+  contians(value) {
+    let result = false;
+
+    let runner = this.head;
+
+    while (runner !== null) {
+      if (runner.data == value) {
+        result = true;
+        return result;
+      }
+      runner = runner.next;
+    }
+
+    return result;
+  }
+
+  //length
+
+  length() {
+    let runner = this.head;
+    let counter = 0;
+    while (runner !== null) {
+      counter++;
+      runner = runner.next;
+    }
+
+    return counter;
+  }
 }
 
 let ls = new SLL().addFront("Hello");
 ls.addFront("I'm in the front now");
 ls.addFront("No I am");
-ls.removehead();
+
 console.log(ls);
-console.log(ls.front());
+console.log(ls.length("Hello"));
