@@ -11,7 +11,7 @@ class SLL {
     this.head = null;
   }
 
-  addFront(value) {
+  add_front(value) {
     let new_node = new Node(value);
 
     if (!this.head) {
@@ -25,7 +25,7 @@ class SLL {
     return this;
   }
 
-  removehead() {
+  remove_head() {
     if (!this.head) {
       console.log("No head");
       return this;
@@ -128,6 +128,52 @@ class SLL {
 
     return sum / num;
   }
+
+  back() {
+    if (this.head == null) {
+      return null;
+    }
+    let runner = this.head;
+
+    while (runner.next != null) {
+      runner = runner.next;
+    }
+
+    return runner.data;
+  }
+
+  remove_back() {
+    if (this.head == null) {
+      return null;
+    }
+    let runner = this.head;
+    let prev = this.head;
+    while (runner.next != null) {
+      prev = runner;
+      runner = runner.next;
+    }
+
+    prev.next = null;
+
+    return this;
+  }
+
+  add_back(val) {
+    let new_node = new Node(val);
+    if (this.head == null) {
+      this.head = new_node;
+      return this;
+    }
+
+    let runner = this.head;
+
+    while (runner.next != null) {
+      runner = runner.next;
+    }
+    runner.next = new_node;
+
+    return this;
+  }
 }
 
 // let ls = new SLL().addFront("Hello");
@@ -137,6 +183,6 @@ class SLL {
 // console.log(ls);
 // console.log(ls.display());
 
-let ls = new SLL().addFront(3).addFront(3).addFront(3);
+let ls = new SLL().add_front(1).add_front(2).add_back(0);
 
-console.log(ls.avg());
+console.log(ls);
