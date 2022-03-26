@@ -71,6 +71,19 @@ class SLL {
 
     return counter;
   }
+
+  //display
+  display() {
+    let display_text = "";
+    let runner = this.head;
+    let counter = 0;
+    while (runner != null) {
+      counter++;
+      display_text += `Node ${counter}: ${runner.data}\n`;
+      runner = runner.next;
+    }
+    return display_text;
+  }
 }
 
 let ls = new SLL().addFront("Hello");
@@ -78,4 +91,4 @@ ls.addFront("I'm in the front now");
 ls.addFront("No I am");
 
 console.log(ls);
-console.log(ls.length("Hello"));
+console.log(ls.display());
